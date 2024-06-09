@@ -1,4 +1,4 @@
-"""
+/*
 Author - Parth Khambhayta
 
 Question - Database Case Sensitivity vs Insensitivity
@@ -15,7 +15,7 @@ INSERT INTO employees (employee_id,employee_name, email_id) VALUES ('107','Ankit
 
 ALTER TABLE employees
 ALTER COLUMN email_id VARCHAR(15) COLLATE SQL_Latin1_General_CP1_CS_AS;
-"""
+*/
 
 with cte as (
 select *, rank() over(partition by lower(email_id) order by ascii(email_id) desc) as rn
